@@ -4,10 +4,10 @@ import nltk
 
 def buid_dict_file():
     word_to_id = {}
-    dict_file = 'processed_files/word_to_id.txt'
-    file1 = ['sentiment.train.0', 'sentiment.train.1',
-             'sentiment.dev.0', 'sentiment.dev.1',
-             'sentiment.test.0', 'sentiment.test.1']
+    dict_file = '/content/ContextStyleTransform/data/amazon/processed_files/word_to_id.txt'
+    file1 = ['/content/ContextStyleTransform/data/amazon/sentiment.train.0', '/content/ContextStyleTransform/data/amazon/sentiment.train.1',
+             '/content/ContextStyleTransform/data/amazon/sentiment.dev.0', '/content/ContextStyleTransform/data/amazon/sentiment.dev.1',
+             '/content/ContextStyleTransform/data/amazon/sentiment.test.0', '/content/ContextStyleTransform/data/amazon/sentiment.test.1']
     for file_item in file1:
         with open(file_item, 'r') as f:
             for item in f:
@@ -20,7 +20,7 @@ def buid_dict_file():
                     if word not in word_to_id:
                         word_to_id[word] = 0
                     word_to_id[word] += 1
-    file2 = ['reference.0', 'reference.1']
+    file2 = ['/content/ContextStyleTransform/data/amazon/reference.0', '/content/ContextStyleTransform/data/amazon/reference.1']
     for file_item in file2:
         with open(file_item, 'r') as f:
             for instance in f:
@@ -54,7 +54,7 @@ def build_id_file():
     # load word_dict
     word_dict = {}
     num = 0
-    with open('processed_files/word_to_id.txt', 'r') as f:
+    with open('/content/ContextStyleTransform/data/amazon/processed_files/word_to_id.txt', 'r') as f:
         lines = f.readlines()
         for line in lines:
             item = line.strip()
@@ -64,9 +64,9 @@ def build_id_file():
     print("Load embedding success! Num: %d" % len(word_dict))
 
     # generate id file
-    file1 = ['sentiment.train.0', 'sentiment.train.1',
-             'sentiment.dev.0', 'sentiment.dev.1',
-             'sentiment.test.0', 'sentiment.test.1']
+    file1 = ['/content/ContextStyleTransform/data/amazon/sentiment.train.0', '/content/ContextStyleTransform/data/amazon/sentiment.train.1',
+             '/content/ContextStyleTransform/data/amazon/sentiment.dev.0', '/content/ContextStyleTransform/data/amazon/sentiment.dev.1',
+             '/content/ContextStyleTransform/data/amazon/sentiment.test.0', '/content/ContextStyleTransform/data/amazon/sentiment.test.1']
     for file_item in file1:
         id_file_data = []
         with open(file_item, 'r') as f:
